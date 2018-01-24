@@ -1,0 +1,30 @@
+CREATE DATABASE IF NOT EXISTS douban CHARACTER SET 'utf8';
+SHOW DATABASES;
+USE douban;
+
+CREATE TABLE IF NOT EXISTS article(
+id MEDIUMINT UNSIGNED auto_increment PRIMARY KEY,
+title VARCHAR(100) NOT NULL UNIQUE,
+description MEDIUMTEXT,
+author VARCHAR(20) not NULL,
+classification VARCHAR(10) not null
+)
+ALTER TABLE `article` ADD avatar VARCHAR(100);
+DESC article;
+
+INSERT INTO article (`title`,`description`,`author`,`classification`,`avatar`) VALUES (
+'个人意见：为什么中国没有鲍勃·迪伦这样的民谣歌手',
+'我们这一代人的成长年代，真正的诗歌课从来都是缺席的。',
+'大象公会',
+'editor',
+'https://img3.doubanio.com/icon/u77564270-3.jpg'
+);
+INSERT INTO article (`title`,`description`,`author`,`classification`,`avatar`) VALUES (
+'爱美丽 | 这7支文艺系香水，犹如写给图书馆的七封情书',
+'若能与少年藤井树相遇于《情书》的书架前，你会选择穿什么香水？',
+'雾港',
+'来自栏目：爱美丽',
+'https://img3.doubanio.com/icon/u3842303-75.jpg'
+);
+
+SELECT * from `article`
